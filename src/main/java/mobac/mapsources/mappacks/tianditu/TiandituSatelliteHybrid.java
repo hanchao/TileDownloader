@@ -31,7 +31,7 @@ public class TiandituSatelliteHybrid extends AbstractMultiLayerMapSource {
 
 	public TiandituSatelliteHybrid() {
 		super("TiandituSatelliteHybrid", TileImageType.PNG);
-		mapSources = new MapSource[] { new TiandituSatellite(), new TiandituLabel() };
+		mapSources = new MapSource[] { new TiandituSatellite(), new TiandituStreetLabel() };
 		initializeValues();
 	}
 

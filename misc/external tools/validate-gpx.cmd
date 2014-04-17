@@ -1,1 +1,0 @@
-SaxCount.exe -v=always -n -s -f %1

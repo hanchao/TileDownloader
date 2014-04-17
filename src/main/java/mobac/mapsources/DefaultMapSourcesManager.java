@@ -38,11 +38,12 @@ import mobac.mapsources.loader.EclipseMapPackLoader;
 import mobac.mapsources.loader.MapPackManager;
 import mobac.mapsources.mappacks.openstreetmap.MapQuest;
 import mobac.mapsources.mappacks.openstreetmap.Mapnik;
-import mobac.mapsources.mappacks.tianditu.TiandituLabel;
 import mobac.mapsources.mappacks.tianditu.TiandituSatellite;
 import mobac.mapsources.mappacks.tianditu.TiandituSatelliteHybrid;
+import mobac.mapsources.mappacks.tianditu.TiandituSatelliteLabel;
 import mobac.mapsources.mappacks.tianditu.TiandituStreet;
 import mobac.mapsources.mappacks.tianditu.TiandituStreetHybrid;
+import mobac.mapsources.mappacks.tianditu.TiandituStreetLabel;
 import mobac.program.interfaces.MapSource;
 import mobac.program.model.Settings;
 import mobac.utilities.I18nUtils;
@@ -82,7 +83,8 @@ public class DefaultMapSourcesManager extends MapSourcesManager {
 				addMapSource(new MapQuest());
 				addMapSource(new TiandituStreet());
 				addMapSource(new TiandituSatellite());
-				addMapSource(new TiandituLabel());
+				addMapSource(new TiandituStreetLabel());
+				addMapSource(new TiandituSatelliteLabel());
 				addMapSource(new TiandituStreetHybrid());
 				addMapSource(new TiandituSatelliteHybrid());
 			}
@@ -91,11 +93,11 @@ public class DefaultMapSourcesManager extends MapSourcesManager {
 			if (mapSourcesDir == null)
 				throw new RuntimeException("Map sources directory is unset");
 			if (!mapSourcesDir.isDirectory()) {
-				JOptionPane.showMessageDialog(null,
-						String.format(I18nUtils.localizedStringForKey("msg_environment_mapsrc_dir_not_exist"),
-								mapSourcesDir.getAbsolutePath()), 
-						I18nUtils.localizedStringForKey("Error"),
-						JOptionPane.ERROR_MESSAGE);
+//				JOptionPane.showMessageDialog(null,
+//						String.format(I18nUtils.localizedStringForKey("msg_environment_mapsrc_dir_not_exist"),
+//								mapSourcesDir.getAbsolutePath()), 
+//						I18nUtils.localizedStringForKey("Error"),
+//						JOptionPane.ERROR_MESSAGE);
 				return;
 			}
 			try {

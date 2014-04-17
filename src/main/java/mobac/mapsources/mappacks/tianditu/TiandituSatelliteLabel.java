@@ -24,24 +24,24 @@ import mobac.program.model.TileImageType;
  * 
  * http://www.chartbundle.com/charts/
  */
-public class TiandituLabel extends AbstractHttpMapSource {
+public class TiandituSatelliteLabel extends AbstractHttpMapSource {
 
 	private static String[] SERVERS = { "t1", "t2", "t3", "t4", "t5", "t6", "t7" };
 	private static int SERVER_NUM = 0;
 	
-	public TiandituLabel() {
-		super("TiandituLabel", 3, 18, TileImageType.PNG, TileUpdate.None);
+	public TiandituSatelliteLabel() {
+		super("TiandituSatelliteLabel", 3, 18, TileImageType.PNG, TileUpdate.None);
 	}
 
 	@Override
 	public String toString() {
-		return "Tianditu Label";
+		return "Tianditu Satellite Label";
 	}
 
 	public String getTileUrl(int zoom, int tilex, int tiley) {
 		String server = SERVERS[SERVER_NUM];
 		SERVER_NUM = (SERVER_NUM + 1) % SERVERS.length;
-		return "http://" + server + ".tianditu.cn/DataServer?T=cva_w&X=" + tilex + "&Y=" + tiley + "&L=" + zoom;
+		return "http://" + server + ".tianditu.cn/DataServer?T=cia_w&X=" + tilex + "&Y=" + tiley + "&L=" + zoom;
 	}
 
 }
