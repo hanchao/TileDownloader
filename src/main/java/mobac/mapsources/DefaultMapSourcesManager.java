@@ -36,6 +36,13 @@ import mobac.mapsources.loader.BeanShellMapSourceLoader;
 import mobac.mapsources.loader.CustomMapSourceLoader;
 import mobac.mapsources.loader.EclipseMapPackLoader;
 import mobac.mapsources.loader.MapPackManager;
+import mobac.mapsources.mappacks.openstreetmap.MapQuest;
+import mobac.mapsources.mappacks.openstreetmap.Mapnik;
+import mobac.mapsources.mappacks.tianditu.TiandituLabel;
+import mobac.mapsources.mappacks.tianditu.TiandituSatellite;
+import mobac.mapsources.mappacks.tianditu.TiandituSatelliteHybrid;
+import mobac.mapsources.mappacks.tianditu.TiandituStreet;
+import mobac.mapsources.mappacks.tianditu.TiandituStreetHybrid;
 import mobac.program.interfaces.MapSource;
 import mobac.program.model.Settings;
 import mobac.utilities.I18nUtils;
@@ -69,6 +76,17 @@ public class DefaultMapSourcesManager extends MapSourcesManager {
 				addMapSource(new DebugTransparentLocalMapSource());
 				addMapSource(new DebugRandomLocalMapSource());
 			}
+			
+			if(true){ // load default
+				addMapSource(new Mapnik());
+				addMapSource(new MapQuest());
+				addMapSource(new TiandituStreet());
+				addMapSource(new TiandituSatellite());
+				addMapSource(new TiandituLabel());
+				addMapSource(new TiandituStreetHybrid());
+				addMapSource(new TiandituSatelliteHybrid());
+			}
+			
 			File mapSourcesDir = Settings.getInstance().getMapSourcesDirectory();
 			if (mapSourcesDir == null)
 				throw new RuntimeException("Map sources directory is unset");
